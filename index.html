@@ -74,10 +74,11 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
 .section-head p { color: rgba(12,35,64,.7); max-width: 500px; margin: 0 auto; font-size: 1.05rem; }
 
 .menu { background: var(--pearl); }
-.menu__strip { margin: 0 0 60px; height: clamp(110px, 16vw, 200px); background-image: url('images/yemek-deniz-mahsulleri.jpg'); background-size: cover; background-position: center; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.menu__strip { margin: 0 0 60px; height: clamp(120px, 14vw, 180px); background-image: url('images/yemek-deniz-mahsulleri.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: var(--pearl-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .menu__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .dish { background: var(--pearl-2); position: relative; display: flex; flex-direction: column; overflow: hidden; }
-.dish__img { aspect-ratio: 4/3; background-size: cover; background-position: center; border-bottom: 3px solid var(--coral); }
+.dish__img { aspect-ratio: 5/4; background-size: cover; background-position: center; border-bottom: 3px solid var(--coral); }
+.dish__img--portrait { background-position: center 35%; }
 .dish__body { padding: 36px 32px 40px; display: flex; flex-direction: column; flex: 1; }
 .dish__num { font-family: var(--f-display); font-style: italic; font-size: 1.1rem; color: var(--coral); margin-bottom: 18px; letter-spacing: .08em; }
 .dish h3 { font-family: var(--f-display); font-weight: 500; font-size: 1.7rem; margin: 0 0 12px; color: var(--navy); }
@@ -90,9 +91,9 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
 .dish--no-img { border-top: 3px solid var(--sea); }
 
 .mekan { background: var(--pearl-2); }
-.mekan__lead { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 48px); margin-bottom: 28px; }
-.mekan__photo { background-size: cover; background-position: center; min-height: 460px; }
-.mekan__photo--full { grid-column: 1 / -1; min-height: 380px; }
+.mekan__lead { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 36px); margin-bottom: 28px; }
+.mekan__photo { background-size: cover; background-position: center; aspect-ratio: 3/4; }
+.mekan__photo--full { grid-column: 1 / -1; aspect-ratio: 16/10; }
 
 .timeline { background: var(--navy); color: var(--pearl); }
 .timeline .section-head h2, .timeline .section-head .eyebrow { color: var(--pearl); }
@@ -233,7 +234,7 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
     <div class="menu__strip" aria-hidden="true"></div>
     <div class="menu__grid">
       <article class="dish reveal">
-        <div class="dish__img" style="background-image:url('images/meze-display.jpg');" aria-hidden="true"></div>
+        <div class="dish__img dish__img--portrait" style="background-image:url('images/meze-display.jpg');" aria-hidden="true"></div>
         <div class="dish__body">
           <div class="dish__num">— I.</div>
           <h3>Mezeler</h3>
@@ -268,8 +269,7 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
           </ul>
         </div>
       </article>
-      <article class="dish reveal">
-        <div class="dish__img" style="background-image:url('images/yemek-deniz-mahsulleri.jpg'); background-position: center; aspect-ratio: 16/10;" aria-hidden="true"></div>
+      <article class="dish dish--no-img reveal" style="border-top-color: var(--coral);">
         <div class="dish__body">
           <div class="dish__num">— III.</div>
           <h3>Balıklar</h3>
