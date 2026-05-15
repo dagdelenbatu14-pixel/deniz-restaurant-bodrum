@@ -231,7 +231,6 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
       <h2>Mezeden balığa, <em>uzun bir akşam.</em></h2>
       <p>Soğuk meze tezgâhımız, sıcak başlangıçlar, günün balıkları ve etler. Servis sofra ritmiyle açılır.</p>
     </header>
-    <div class="menu__strip" aria-hidden="true"></div>
     <div class="menu__grid">
       <article class="dish reveal">
         <div class="dish__img dish__img--portrait" style="background-image:url('images/meze-display.jpg?v=2');" aria-hidden="true"></div>
@@ -269,7 +268,8 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
           </ul>
         </div>
       </article>
-      <article class="dish dish--no-img reveal" style="border-top-color: var(--coral);">
+      <article class="dish reveal">
+        <div class="dish__img" style="background-image:url('images/balik-tezgah.jpg?v=2');" aria-hidden="true"></div>
         <div class="dish__body">
           <div class="dish__num">— III.</div>
           <h3>Balıklar</h3>
@@ -390,10 +390,11 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
     </header>
     <div class="mekan__lead">
       <div class="mekan__photo reveal" style="background-image:url('images/icmekan-mural.jpg?v=2');" aria-label="İçeride mavi-beyaz masalar ve duvarda Ege murali"></div>
-      <div class="mekan__photo reveal" style="background-image:url('images/icmekan-pencere.jpg?v=2');" aria-label="İçeride mavi tentenin altından dışarıya bakış"></div>
+      <div class="mekan__photo reveal" style="background-image:url('images/balikci-tezgah.jpg');" aria-label="Balıkçı tezgâhında günün taze balıkları"></div>
     </div>
-    <div class="mekan__lead" style="grid-template-columns: 1fr;">
-      <div class="mekan__photo mekan__photo--full reveal" style="background-image:url('images/dis-palmiye.jpg?v=2'); background-position: center 40%;" aria-label="Mavi tentenin altından palmiyelerle marina manzarası"></div>
+    <div class="mekan__lead">
+      <div class="mekan__photo reveal" style="background-image:url('images/icmekan-pencere.jpg?v=2');" aria-label="İçeride mavi tentenin altından dışarıya bakış"></div>
+      <div class="mekan__photo reveal" style="background-image:url('images/dis-palmiye.jpg?v=2'); background-position: center 40%;" aria-label="Mavi tentenin altından palmiyelerle marina manzarası"></div>
     </div>
   </div>
 </section>
