@@ -43,8 +43,11 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
 .nav__cta { font-size: .78rem; padding: 11px 24px; background: var(--coral); color: var(--pearl); text-decoration: none; letter-spacing: .14em; text-transform: uppercase; font-weight: 500; border-radius: 999px; margin-left: 16px; }
 
 .hero { padding: clamp(80px, 14vw, 160px) 0 clamp(60px, 10vw, 120px); background: linear-gradient(180deg, var(--pearl) 0%, var(--pearl-2) 100%); position: relative; overflow: hidden; }
-.hero::before { content: ''; position: absolute; top: -180px; right: -120px; width: 540px; height: 540px; border-radius: 50%; background: radial-gradient(circle, rgba(58,110,168,.16), transparent 70%); pointer-events: none; }
-.hero::after { content: ''; position: absolute; bottom: -160px; left: -100px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(217,96,59,.12), transparent 70%); pointer-events: none; }
+.hero__bg { position: absolute; inset: 0; background-image: url('images/dis-palmiye.jpg'); background-size: cover; background-position: center 30%; opacity: .28; pointer-events: none; }
+.hero__bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(244,241,234,.55) 0%, rgba(244,241,234,.85) 100%); }
+.hero::before { content: ''; position: absolute; top: -180px; right: -120px; width: 540px; height: 540px; border-radius: 50%; background: radial-gradient(circle, rgba(58,110,168,.16), transparent 70%); pointer-events: none; z-index: 1; }
+.hero::after { content: ''; position: absolute; bottom: -160px; left: -100px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(217,96,59,.12), transparent 70%); pointer-events: none; z-index: 1; }
+.hero > .wrap { position: relative; z-index: 2; }
 .hero__eyebrow { font-size: .72rem; letter-spacing: .36em; text-transform: uppercase; color: var(--coral); margin: 0 0 36px; position: relative; }
 .hero h1 { font-family: var(--f-display); font-weight: 400; font-size: clamp(2.8rem, 7.6vw, 5.8rem); line-height: 1.04; margin: 0 0 16px; max-width: 980px; letter-spacing: -0.008em; position: relative; }
 .hero h1 em { font-style: italic; color: var(--sea-2); }
@@ -71,17 +74,25 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
 .section-head p { color: rgba(12,35,64,.7); max-width: 500px; margin: 0 auto; font-size: 1.05rem; }
 
 .menu { background: var(--pearl); }
+.menu__strip { margin: 0 0 60px; height: clamp(110px, 16vw, 200px); background-image: url('images/yemek-deniz-mahsulleri.jpg'); background-size: cover; background-position: center; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .menu__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-.dish { padding: 44px 36px; background: var(--pearl-2); position: relative; border-left: 3px solid var(--sea); }
-.dish:nth-child(2) { border-left-color: var(--coral); }
-.dish:nth-child(3) { border-left-color: var(--navy); }
-.dish__num { font-family: var(--f-display); font-style: italic; font-size: 1.15rem; color: var(--coral); margin-bottom: 22px; letter-spacing: .08em; }
-.dish h3 { font-family: var(--f-display); font-weight: 500; font-size: 1.75rem; margin: 0 0 14px; color: var(--navy); }
-.dish p { color: rgba(12,35,64,.74); font-size: .96rem; margin: 0 0 26px; }
+.dish { background: var(--pearl-2); position: relative; display: flex; flex-direction: column; overflow: hidden; }
+.dish__img { aspect-ratio: 4/3; background-size: cover; background-position: center; border-bottom: 3px solid var(--coral); }
+.dish__body { padding: 36px 32px 40px; display: flex; flex-direction: column; flex: 1; }
+.dish__num { font-family: var(--f-display); font-style: italic; font-size: 1.1rem; color: var(--coral); margin-bottom: 18px; letter-spacing: .08em; }
+.dish h3 { font-family: var(--f-display); font-weight: 500; font-size: 1.7rem; margin: 0 0 12px; color: var(--navy); }
+.dish p { color: rgba(12,35,64,.74); font-size: .94rem; margin: 0 0 22px; }
 .dish ul { list-style: none; padding: 0; margin: 0; }
-.dish li { padding: 10px 0; border-top: 1px solid rgba(12,35,64,.12); font-size: .9rem; color: rgba(12,35,64,.8); display: flex; justify-content: space-between; gap: 12px; }
+.dish li { padding: 9px 0; border-top: 1px solid rgba(12,35,64,.12); font-size: .88rem; color: rgba(12,35,64,.8); }
 .dish li:first-child { border-top: 0; padding-top: 0; }
-.dish li span { font-family: var(--f-display); font-style: italic; color: var(--sea-2); }
+.dish li em { font-style: italic; font-family: var(--f-display); color: var(--sea-2); font-size: .95em; }
+.dish--no-img .dish__body { padding-top: 44px; }
+.dish--no-img { border-top: 3px solid var(--sea); }
+
+.mekan { background: var(--pearl-2); }
+.mekan__lead { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 48px); margin-bottom: 28px; }
+.mekan__photo { background-size: cover; background-position: center; min-height: 460px; }
+.mekan__photo--full { grid-column: 1 / -1; min-height: 380px; }
 
 .timeline { background: var(--navy); color: var(--pearl); }
 .timeline .section-head h2, .timeline .section-head .eyebrow { color: var(--pearl); }
@@ -138,6 +149,9 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
   .timeline__grid { grid-template-columns: 1fr 1fr; }
   .about__grid { grid-template-columns: 1fr; }
   .hero__divider { grid-template-columns: 1fr 1fr; gap: 18px; }
+  .mekan__lead { grid-template-columns: 1fr; }
+  .mekan__photo { min-height: 320px; }
+  .menu__strip { height: 110px; }
 }
 @media (prefers-reduced-motion: reduce) { *, ::before, ::after { transition: none !important; } }
 </style>
@@ -190,6 +204,7 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
 </header>
 
 <section class="hero" id="top">
+  <div class="hero__bg" aria-hidden="true"></div>
   <div class="wrap">
     <p class="hero__eyebrow">Günün Balığı · Bodrum Çarşı · Belediye Meydanı</p>
     <h1>Sabah ağdan, akşam <em>sofraya.</em>
@@ -212,42 +227,118 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
   <div class="wrap">
     <header class="section-head">
       <span class="eyebrow">Sofranın Akışı</span>
-      <h2>Üç ayrı <em>başlık,</em> tek bir akşam.</h2>
-      <p>Soğuk ve sıcak mezeler, günün balığı, eşlikçi şaraplar. Servis sofra ritmiyle açılır.</p>
+      <h2>Mezeden balığa, <em>uzun bir akşam.</em></h2>
+      <p>Soğuk meze tezgâhımız, sıcak başlangıçlar, günün balıkları ve etler. Servis sofra ritmiyle açılır.</p>
     </header>
+    <div class="menu__strip" aria-hidden="true"></div>
     <div class="menu__grid">
       <article class="dish reveal">
-        <div class="dish__num">— I.</div>
-        <h3>Mezeler</h3>
-        <p>Soğuk tezgâhımızdan günün taze otları, ince doğranmış denizlikler, fırınımızdan sıcak başlangıçlar.</p>
-        <ul>
-          <li>Çiroz salatası<span>tezgâh</span></li>
-          <li>Topik <span>Karaköy usulü</span></li>
-          <li>Ahtapot ızgara <span>günün</span></li>
-          <li>Hamsi pilavı <span>fırın</span></li>
-        </ul>
+        <div class="dish__img" style="background-image:url('images/meze-display.jpg');" aria-hidden="true"></div>
+        <div class="dish__body">
+          <div class="dish__num">— I.</div>
+          <h3>Mezeler</h3>
+          <p>Soğuk meze tezgâhımız her sabah yeniden kurulur — Ege otları, közlenmiş sebzeler, deniz ürünleri salataları.</p>
+          <ul>
+            <li>Humus <em>· Antep tahini ile</em></li>
+            <li>Haydari <em>· köy yoğurdu</em></li>
+            <li>Babagannuş <em>· köz patlıcan</em></li>
+            <li>Ahtapot salatası <em>· günün</em></li>
+            <li>Karides salatası <em>· limonlu</em></li>
+            <li>Şakşuka <em>· Akdeniz</em></li>
+            <li>Çoban &amp; sezar salata</li>
+            <li>Akdeniz salatası</li>
+          </ul>
+        </div>
       </article>
       <article class="dish reveal">
-        <div class="dish__num">— II.</div>
-        <h3>Balık</h3>
-        <p>Her sabah Bodrum balıkçıları tezgâha gelir. Menü o gün açılır — çupra, levrek, mercan, mavi yengeç.</p>
-        <ul>
-          <li>Levrek tuz <span>küçük tabak</span></li>
-          <li>Çupra ızgara <span>günün</span></li>
-          <li>Lagos buğulama <span>iki kişilik</span></li>
-          <li>Mavi yengeç <span>limitli</span></li>
-        </ul>
+        <div class="dish__img" style="background-image:url('images/yemek-kalamar-tava.jpg');" aria-hidden="true"></div>
+        <div class="dish__body">
+          <div class="dish__num">— II.</div>
+          <h3>Ara Sıcaklar</h3>
+          <p>Kalamar tava bizim imzamızdır — sade undan ince un, sıcak yağ, anlık servis. Yanında sarımsaklı sos.</p>
+          <ul>
+            <li>Kalamar tava <em>· ev usulü</em></li>
+            <li>Kalamar ızgara</li>
+            <li>Karides güveç</li>
+            <li>Karides ızgara</li>
+            <li>Ahtapot ızgara &amp; tandır</li>
+            <li>Sigara böreği <em>· beyaz peynir</em></li>
+            <li>Kaşar pane <em>· panko</em></li>
+            <li>Sarımsaklı ekmek &amp; pide</li>
+          </ul>
+        </div>
       </article>
       <article class="dish reveal">
-        <div class="dish__num">— III.</div>
-        <h3>Şarap Eşliği</h3>
-        <p>Ege beyazları ağırlıkta, Türk üreticilerden yerel butik şişeler. Sommelier Berk Demir'in seçimleri.</p>
-        <ul>
-          <li>Karaören Beyaz <span>kadeh</span></li>
-          <li>Likya Sauvignon <span>kadeh</span></li>
-          <li>Urla Vasilaki <span>şişe</span></li>
-          <li>Champagne Ruinart <span>özel</span></li>
-        </ul>
+        <div class="dish__img" style="background-image:url('images/yemek-deniz-mahsulleri.jpg'); background-position: center; aspect-ratio: 16/10;" aria-hidden="true"></div>
+        <div class="dish__body">
+          <div class="dish__num">— III.</div>
+          <h3>Balıklar</h3>
+          <p>Her sabah Bodrum balıkçıları tezgâha gelir. Menü o gün açılır — günün tezgâhına meydana baktığında görürsünüz.</p>
+          <ul>
+            <li>Levrek <em>· ızgara · buğulama</em></li>
+            <li>Çupra <em>· ızgara · tuzda</em></li>
+            <li>Kılıç şiş &amp; ızgara</li>
+            <li>Lagos <em>· günün limitli</em></li>
+            <li>Mercan, barbun, lüfer</li>
+            <li>Hamsi tava <em>· sezonunda</em></li>
+            <li>Istakoz <em>· önceden ayırtın</em></li>
+            <li>Karışık balık tabağı</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <div class="menu__grid" style="margin-top:28px;">
+      <article class="dish dish--no-img reveal">
+        <div class="dish__body">
+          <div class="dish__num">— IV.</div>
+          <h3>Kebaplar &amp; Etler</h3>
+          <p>Bodrum'a balık için gelirsiniz, ama masada et isteyene de hazırız. Kuzu ve dana ızgara, Anadolu klasikleri.</p>
+          <ul>
+            <li>Adana kebabı</li>
+            <li>Urfa kebabı</li>
+            <li>Beyti, çökertme, iskender</li>
+            <li>Patlıcan kebabı</li>
+            <li>Kuzu &amp; dana şiş</li>
+            <li>Kuzu pirzola</li>
+            <li>Karışık ızgara</li>
+            <li>Yoğurtlu kebap</li>
+          </ul>
+        </div>
+      </article>
+      <article class="dish dish--no-img reveal">
+        <div class="dish__body">
+          <div class="dish__num">— V.</div>
+          <h3>Güveçler &amp; Pideler</h3>
+          <p>Fırından çıkıp masaya gelen sıcak tabaklar — kuzu güveç, deniz ürünleri güveci, ince pideler.</p>
+          <ul>
+            <li>Kuzu güveç</li>
+            <li>Dana güveç</li>
+            <li>Karides &amp; ahtapot güveç</li>
+            <li>Sebzeli güveç</li>
+            <li>Balık güveç</li>
+            <li>Kıymalı pide</li>
+            <li>Kuşbaşılı &amp; kaşarlı pide</li>
+            <li>Karışık pide</li>
+          </ul>
+        </div>
+      </article>
+      <article class="dish dish--no-img reveal">
+        <div class="dish__body">
+          <div class="dish__num">— VI.</div>
+          <h3>Vejetaryen &amp; Makarna</h3>
+          <p>Et yemeyenler için ayrı bir sofra. Akdeniz risotto, sebze lazanya, taze makarnalar.</p>
+          <ul>
+            <li>Mantar risotto</li>
+            <li>Sebze lazanya <em>· beşamel</em></li>
+            <li>Spinach ıspanak güveci</li>
+            <li>Falafel &amp; humus tabağı</li>
+            <li>Deniz ürünleri makarna</li>
+            <li>Bolonez &amp; napolitan</li>
+            <li>Vejetaryen pizza</li>
+            <li>Margarita &amp; karışık pizza</li>
+          </ul>
+        </div>
       </article>
     </div>
   </div>
@@ -290,10 +381,27 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
   </div>
 </section>
 
+<section class="mekan" id="mekan">
+  <div class="wrap">
+    <header class="section-head">
+      <span class="eyebrow">Mekân</span>
+      <h2>Marina'ya bakan <em>uzun bir teras,</em> içeride mavi-beyaz bir sofra.</h2>
+      <p>Belediye Meydanı'nın köşesinde palmiyelerin altında dış teras; içeride deniz mavisi sandalyeler, masalar ve duvarda Bodrum'a açılan bir mural.</p>
+    </header>
+    <div class="mekan__lead">
+      <div class="mekan__photo reveal" style="background-image:url('images/icmekan-mural.jpg');" aria-label="İçeride mavi-beyaz masalar ve duvarda Ege murali"></div>
+      <div class="mekan__photo reveal" style="background-image:url('images/icmekan-pencere.jpg');" aria-label="İçeride mavi tentenin altından dışarıya bakış"></div>
+    </div>
+    <div class="mekan__lead" style="grid-template-columns: 1fr;">
+      <div class="mekan__photo mekan__photo--full reveal" style="background-image:url('images/dis-palmiye.jpg'); background-position: center 40%;" aria-label="Mavi tentenin altından palmiyelerle marina manzarası"></div>
+    </div>
+  </div>
+</section>
+
 <section class="about">
   <div class="wrap about__grid">
     <div class="about__text reveal">
-      <span class="eyebrow">Mekan</span>
+      <span class="eyebrow">Hikâye</span>
       <h2>Çeyrek asırdır, Belediye Meydanı'nın <em>karşısında.</em></h2>
       <p>Deniz Restaurant, 1998'de Kaptan Mehmet Yılmaz tarafından açıldı. Bugün oğlu Erhan Yılmaz mutfağı, kızı Yasemin sofrayı yönetiyor. Bodrum balıkçıları sabahları doğrudan buraya bırakır — tezgâh günle birlikte kurulur.</p>
       <p>Menü matbu değildir; her gün tahtaya yazılır. Bu yüzden hangi balığın o gün servis edileceğini ancak sabah tezgâh açıldığında bilebiliriz — sezonun ritmi sofraya doğrudan iner.</p>
