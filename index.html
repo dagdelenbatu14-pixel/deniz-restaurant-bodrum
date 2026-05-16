@@ -74,6 +74,11 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
 .section-head p { color: rgba(12,35,64,.7); max-width: 500px; margin: 0 auto; font-size: 1.05rem; }
 
 .menu { background: var(--pearl); }
+.cephe-banner { position: relative; height: clamp(280px, 38vw, 480px); background-image: url('images/cephe.jpg'); background-size: cover; background-position: center 40%; }
+.cephe-banner::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,35,64,0) 0%, rgba(12,35,64,.35) 100%); }
+.cephe-banner__caption { position: absolute; bottom: clamp(24px, 4vw, 48px); left: 0; right: 0; text-align: center; color: var(--pearl); z-index: 2; padding: 0 var(--pad); }
+.cephe-banner__caption .eyebrow { font-size: .72rem; letter-spacing: .36em; text-transform: uppercase; color: var(--pearl); opacity: .85; margin: 0 0 12px; }
+.cephe-banner__caption h2 { font-family: var(--f-display); font-weight: 400; font-style: italic; font-size: clamp(1.6rem, 3.2vw, 2.4rem); margin: 0; color: var(--pearl); letter-spacing: -0.005em; }
 .menu__strip { margin: 0 0 60px; height: clamp(120px, 14vw, 180px); background-image: url('images/yemek-deniz-mahsulleri.jpg?v=2'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: var(--pearl-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .menu__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .dish { background: var(--pearl-2); position: relative; display: flex; flex-direction: column; overflow: hidden; }
@@ -224,6 +229,13 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
   </div>
 </section>
 
+<section class="cephe-banner" aria-label="Deniz Restaurant cephesi · Bodrum Çarşı">
+  <div class="cephe-banner__caption">
+    <p class="eyebrow">Çarşı · Belediye Meydanı no 4</p>
+    <h2>1998'den beri, aynı kapı, aynı sofra.</h2>
+  </div>
+</section>
+
 <section class="menu" id="menu">
   <div class="wrap">
     <header class="section-head">
@@ -251,11 +263,11 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
         </div>
       </article>
       <article class="dish reveal">
-        <div class="dish__img" style="background-image:url('images/yemek-kalamar-tava.jpg?v=2');" aria-hidden="true"></div>
+        <div class="dish__img" style="background-image:url('images/yemek-tabak.jpg');" aria-hidden="true"></div>
         <div class="dish__body">
           <div class="dish__num">— II.</div>
-          <h3>Ara Sıcaklar</h3>
-          <p>Kalamar tava bizim imzamızdır — sade undan ince un, sıcak yağ, anlık servis. Yanında sarımsaklı sos.</p>
+          <h3>Ara Sıcaklar &amp; Izgaralar</h3>
+          <p>Kalamar tava, karides güveç, ızgara mezeler ve sofranın ortasına gelen karışık ızgara tabağı. Hepsi anlık, hepsi taze.</p>
           <ul>
             <li>Kalamar tava <em>· ev usulü</em></li>
             <li>Kalamar ızgara</li>
@@ -394,7 +406,10 @@ section { padding: clamp(80px, 14vw, 160px) 0; }
     </div>
     <div class="mekan__lead">
       <div class="mekan__photo reveal" style="background-image:url('images/icmekan-pencere.jpg?v=2');" aria-label="İçeride mavi tentenin altından dışarıya bakış"></div>
-      <div class="mekan__photo reveal" style="background-image:url('images/dis-palmiye.jpg?v=2'); background-position: center 40%;" aria-label="Mavi tentenin altından palmiyelerle marina manzarası"></div>
+      <div class="mekan__photo reveal" style="background-image:url('images/masa-marina.jpg');" aria-label="Marina manzarasına bakan sofrada balık ve mezeler"></div>
+    </div>
+    <div class="mekan__lead" style="grid-template-columns: 1fr;">
+      <div class="mekan__photo mekan__photo--full reveal" style="background-image:url('images/dis-palmiye.jpg?v=2'); background-position: center 40%;" aria-label="Mavi tentenin altından palmiyelerle marina manzarası"></div>
     </div>
   </div>
 </section>
